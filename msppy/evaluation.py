@@ -85,7 +85,7 @@ class _Evaluation(object):
 
     def _compute_sample_path_idx_and_markovian_path(self):
         pass
-
+    
     def run(
             self,
             n_simulations,
@@ -197,7 +197,7 @@ class _Evaluation(object):
             }
         if query_stage_cost:
             self.stage_cost = pandas.DataFrame(numpy.array(stage_cost))
-
+    
     def run_single(self, pv, jobs, query=None, query_dual=None,
             query_stage_cost=False, stage_cost=None,
             solution=None, solution_dual=None):
