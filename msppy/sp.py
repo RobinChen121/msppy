@@ -1523,9 +1523,14 @@ class StochasticModelLG(StochasticModel):
                 else:
                     stable_iterations += 1
                 # Update projection model
-                model_proj.setAttr(
-                    "obj", pi_proj, [-2 * x for x in grad_best_so_far]
-                )
+                
+                try:
+                    model_proj.setAttr(
+                        "obj", list(pi_proj), [-2 * x for x in grad_best_so_far]
+                    )
+                except Exception:
+                    pass
+                
                 # determine the level
                 delta = benchmark - objVal_best_so_far
                 if abs(delta) <= tol * abs(benchmark):
@@ -1580,11 +1585,16 @@ class StochasticModelLG(StochasticModel):
             ).values()
             self.update()
             if transition == 0:
-                temp1 = gurobipy.quicksum(
-                    pow(2, i) * states[i] for i in range(n_binaries[i])
-                )
+                
+                try:
+                    temp1 = gurobipy.quicksum(
+                        pow(2, k) * list(states)[k] for k in range(n_binaries[i])
+                    )
+                except Exception:
+                    pass
+                
             temp2 = gurobipy.quicksum(
-                pow(2, i) * local_copies[i] for i in range(n_binaries[i])
+                pow(2, k) * list(local_copies)[k] for k in range(n_binaries[i])
             )
             # Assume bounds are the same over time!
             if x.vtype not in ["I","B"]:
