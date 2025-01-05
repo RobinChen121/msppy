@@ -12,6 +12,9 @@
     precision being 1 is not enough in this problem.
 """
 
+import sys
+sys.path.append("..")
+
 from msppy.msp import MSIP
 from msppy.solver import Extensive,SDDiP
 from msppy.evaluation import EvaluationTrue
