@@ -25,7 +25,7 @@ class MSLP(object):
     bound: float, optional
         A known uniform lower bound or uppder bound (depending on optimization
         sense) for each stage problem.
-        Default value is -1B for maximization problem and 1B for maximation problem.
+        Default value is -1B for maximization problem and 1B for minimization problem. # chen: -1 billion for minimization problem
 
     sense: +1/-1, optional, default=1
         The optimization sense. +1 indicates minimization and -1 indicates
