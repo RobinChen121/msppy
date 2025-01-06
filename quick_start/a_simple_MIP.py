@@ -48,9 +48,9 @@ for t in range(2):
 print('extensive solver: ', Extensive(MIP).solve(outputFlag=0))
 MIP.binarize(bin_stage=2, precision=precision)
 SDDiP(MIP).solve(cuts=['LG'], max_iterations=128)
-resultTrue = EvaluationTrue(MIP)
-resultTrue.run(n_simulations=100)
-resultTrue.CI
+# resultTrue = EvaluationTrue(MIP) # there are some errors running multiprocessing simulation # chen 
+# resultTrue.run(n_simulations=100)
+# resultTrue.CI
 ####################################verification##############################################
 ### extensive model ##
 #from gurobipy import *
