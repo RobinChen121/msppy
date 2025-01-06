@@ -33,6 +33,6 @@ for t in range(T):
 absolute.binarize(bin_stage=T, precision=precision)
 Extensive(absolute).solve(outputFlag=0)
 absolute_sddip = SDDiP(absolute)
-absolute_sddip.solve(cuts=['LG'], n_steps=3, n_processes=3, max_iterations=30)
+absolute_sddip.solve(cuts=['LG'], n_steps=3, n_processes=3, max_iterations=30) # chen: multiprocessing pickle errors
 
 #absolute.extensive(outputflag=0)

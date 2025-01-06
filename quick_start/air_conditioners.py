@@ -39,7 +39,7 @@ for t in range(T):
     m = airConditioners[t]
     storage_now, storage_past = m.addStateVar(vtype='I', obj=50)
     produce = m.addVar(ub=200, vtype='I', obj=100)
-    overtime = m.addVar(vtype='I', obj=300)
+    overtime = m.addVar(vtype='I', obj=300) # chen: overtime production quantity
     m.update()
     if t == 0:
         m.addConstr(produce + overtime - storage_now == 100)
@@ -49,5 +49,6 @@ for t in range(T):
             uncertainty={'rhs': A}
         )
         m.set_probability([0.4,0.6])
+    m.write('air' + str(t) + '.lp')
 Extensive(airConditioners).solve()
 SDDiP(airConditioners).solve(cuts=['B'], max_iterations=10)
