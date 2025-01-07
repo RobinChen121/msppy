@@ -29,6 +29,9 @@ min x + 3w + 0.5y
      x + y_past + w - y_now = d
 
 '''
+import sys
+sys.path.append("..")
+
 from msppy.msp import MSIP
 from msppy.solver import SDDiP,Extensive
 import gurobipy
