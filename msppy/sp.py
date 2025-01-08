@@ -312,7 +312,7 @@ class StochasticModel(object):
                 if uncertainty.ndim != 2 or uncertainty.shape[1] != list_dim:
                     dim = None if uncertainty.ndim == 1 else uncertainty.shape[1]
                     raise ValueError("dimension of the scenarios is {} while \
-                                     dimension of the added object is 1!"
+                                     dimension of the added object is 1!" # chen: 1 should be {}
                         .format(dim, uncertainty.ndim)
                     )
                 try:
