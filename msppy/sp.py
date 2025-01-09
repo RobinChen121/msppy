@@ -224,7 +224,7 @@ class StochasticModel(object):
                     except TypeError:
                         raise DistributionError(arg=False)
                     try:
-                        float(item(numpy.random))
+                        float(item(numpy.random)) # chen: shoule check whether it is number: numpy.array(item(numpy.random), dtype = 'float64')
                     except (ValueError,TypeError):
                         raise DistributionError(ret=False)
                 else:
@@ -309,7 +309,7 @@ class StochasticModel(object):
                     raise ValueError("Scenarios must only contains numbers!")
             else:
                 # list to list
-                if uncertainty.ndim != 2 or uncertainty.shape[1] != list_dim:
+                if uncertainty.ndim != 2 or uncertainty.shape[1] != list_dim: # chen: may be somthing wrong here
                     dim = None if uncertainty.ndim == 1 else uncertainty.shape[1]
                     raise ValueError("dimension of the scenarios is {} while \
                                      dimension of the added object is 1!" # chen: 1 should be {}
