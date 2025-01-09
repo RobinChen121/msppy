@@ -224,7 +224,7 @@ class StochasticModel(object):
                     except TypeError:
                         raise DistributionError(arg=False)
                     try:
-                        float(item(numpy.random)) # chen: shoule check whether it is number: numpy.array(item(numpy.random), dtype = 'float64')
+                        float(item(numpy.random)) # chen: should check whether it is number: numpy.array(item(numpy.random), dtype = 'float64')
                     except (ValueError,TypeError):
                         raise DistributionError(ret=False)
                 else:

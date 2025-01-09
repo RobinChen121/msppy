@@ -5,7 +5,7 @@ Created on Wed Oct 17 19:32:42 2018
 
 News vendor problem. Minimize cost.
 risk neutral optimum is -97.9
-risk averse optimum (alpha_ = 0.6, lambda_ = 0.5) is -91.6
+risk-averse optimum (alpha_ = 0.6, lambda_ = 0.5) is -91.6
 
 Uncertainties on the right hand side (demand), markovian purchase price
 stage-wise independent discrete uncertainties & stage-wise dependent discrete uncertainties
