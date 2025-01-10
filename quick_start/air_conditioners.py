@@ -32,7 +32,8 @@ min x + 3w + 0.5y
 
 from msppy.msp import MSIP
 from msppy.solver import SDDiP,Extensive
-import gurobipy
+# chen: not necessary to import gurobipy
+
 T = 3
 A = [100,300]
 airConditioners = MSIP(T=T, bound=0)
