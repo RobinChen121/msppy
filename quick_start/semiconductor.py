@@ -109,5 +109,5 @@ for t in range(T):
         m.addConstrs( (w[j] + u[j] >= 0 for j in range(J)), uncertainty=d_generator )
 semiconductor.discretize(n_samples=20)
 SDDP(semiconductor).solve(max_iterations=10)
-result = EvaluationTrue(semiconductor)
-result.run(n_simulations=1000)
+# result = EvaluationTrue(semiconductor) # chen: there is somthing wrong in the multi processing simulation
+# result.run(n_simulations=1000)
