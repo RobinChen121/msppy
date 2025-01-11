@@ -942,7 +942,7 @@ class StochasticModel(object):
         replace: boolean, optional, default is True
             Whether the sample is with or without replacement.
         """
-        if hasattr(self,'_flag_discrete') and self._flag_discrete == 1: return
+        if hasattr(self,'_flag_discrete') and self._flag_discrete == 1: return # chen: 'hasattr(self,'_flag_discrete') and' not necessary
         # Discretize continuous true problem
         if self._type == "continuous":
             self.n_samples = n_samples
