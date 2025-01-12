@@ -5,6 +5,7 @@ Markovian uncertainty in constaint coefficients
 Initial wealth is 55k, target value in the end of period is 80k; surplus reward is 1, shortage penalty is 4.
 """
 
+
 from msppy.msp import MSLP
 from msppy.solver import SDDP, Extensive
 from msppy.evaluation import Evaluation,EvaluationTrue
@@ -41,9 +42,9 @@ AssetMgt.discretize(
     n_Markov_states=25,
     n_sample_paths=10000,
 )
-# Extensive(AssetMgt).solve()
+Extensive(AssetMgt).solve()
 SDDP(AssetMgt).solve(max_iterations=400)
-result = Evaluation(AssetMgt)
-result.run(n_simulations=1000)
-resultTrue = EvaluationTrue(AssetMgt)
-resultTrue.run(n_simulations=1000)
+# result = Evaluation(AssetMgt)
+# result.run(n_simulations=1000)
+# resultTrue = EvaluationTrue(AssetMgt)
+# resultTrue.run(n_simulations=1000)

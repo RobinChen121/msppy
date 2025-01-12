@@ -207,8 +207,7 @@ class MSLP(object):
         if hasattr(self, "Markovian_uncertainty") or hasattr(self,
         "Markov_states"):
             raise ValueError("Markovian uncertainty has already added!")
-        self.dim_Markov_states=check_Markovian_uncertainty(Markovian_uncertainty
-        ,self.T)
+        self.dim_Markov_states = check_Markovian_uncertainty(Markovian_uncertainty)
         self.Markovian_uncertainty = Markovian_uncertainty
         self._type = 'Markovian'
 
@@ -237,7 +236,7 @@ class MSLP(object):
             if self._type == 'stage-wise independent'
             else [self.models[t][0].n_states for t in range(self.T)]
         )
-        self.n_samples = (
+        self.n_samples = ( # chen: this attribute is never used
             [self.models[t].n_samples for t in range(self.T)]
             if self._type == 'stage-wise independent'
             else [self.models[t][0].n_samples for t in range(self.T)]
@@ -273,7 +272,7 @@ class MSLP(object):
         m = self.models[0] if type(self.models[0]) != list else self.models[0][0]
         if m.states == []:
             raise Exception("State variables must be set!")
-        n_states = m.n_states
+        n_states = m.n_states # chen: n_states not used
         for t in range(1, self.T):
             M = (
                 self.models[t]

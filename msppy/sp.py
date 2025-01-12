@@ -949,7 +949,7 @@ class StochasticModel(object):
             # Order of discretization matters
             for key, dist in sorted(
                 self.uncertainty_rhs_continuous.items(),
-                key=lambda t: repr(t[0]),
+                key=lambda t: repr(t[0]), # chen: sort the dict is sorting the key by default. This line is not necessary.
             ):
                 self.uncertainty_rhs[key] = [
                     dist(random_state) for _ in range(self.n_samples)

@@ -12,10 +12,10 @@
     precision being 1 is not enough in this problem.
 """
 
-import sys 
+# import sys
 # sys.path.append("D:/Users/chen/git/msppy")
 
-sys.path.append("..")
+# sys.path.append("..")
 
 from msppy.msp import MSIP
 from msppy.solver import Extensive,SDDiP
