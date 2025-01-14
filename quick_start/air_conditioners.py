@@ -31,7 +31,7 @@ min x + 3w + 0.5y
 '''
 
 from msppy.msp import MSIP
-from msppy.solver import SDDiP,Extensive
+from msppy.solver import SDDiP, Extensive
 # chen: not necessary to import gurobipy
 
 T = 3
@@ -39,6 +39,7 @@ A = [100,300]
 airConditioners = MSIP(T=T, bound=0)
 for t in range(T):
     m = airConditioners[t]
+    # storage_past is a local copy var of storage_now
     storage_now, storage_past = m.addStateVar(vtype='I', obj=50)
     produce = m.addVar(ub=200, vtype='I', obj=100)
     overtime = m.addVar(vtype='I', obj=300) # chen: overtime production quantity
@@ -51,6 +52,6 @@ for t in range(T):
             uncertainty={'rhs': A}
         )
         m.set_probability([0.4,0.6])
-    m.write('air' + str(t) + '.lp')
+    # m.write('air' + str(t) + '.lp')
 Extensive(airConditioners).solve()
 SDDiP(airConditioners).solve(cuts=['B'], max_iterations=10)

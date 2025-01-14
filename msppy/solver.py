@@ -1305,8 +1305,11 @@ class Extensive(object):
                 for k, m in enumerate(M):
                     # copy information from model in scenario j and markov state
                     # k.
+                    m.update()
+                    m.write('test1.lp')
                     m._update_uncertainty(j)
                     m.update()
+                    m.write('test.lp')
                     # compute sample paths that go through the current node
                     current_sample_paths = (
                         [
