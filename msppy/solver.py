@@ -1199,6 +1199,7 @@ class Extensive(object):
         self.construction_time = construction_end_time - construction_start_time
         solving_start_time = time.time()
         self.extensive_model.optimize()
+        self.extensive_model.write('final.lp')
         solving_end_time = time.time()
         self.solving_time = solving_end_time - solving_start_time
         self.total_time = self.construction_time + self.solving_time
@@ -1305,11 +1306,8 @@ class Extensive(object):
                 for k, m in enumerate(M):
                     # copy information from model in scenario j and markov state
                     # k.
-                    m.update()
-                    m.write('test1.lp')
                     m._update_uncertainty(j)
                     m.update()
-                    m.write('test.lp')
                     # compute sample paths that go through the current node
                     current_sample_paths = (
                         [
@@ -1473,6 +1471,9 @@ class Extensive(object):
                 stage_cost = new_stage_cost
             sample_paths = new_sample_paths
         # !end time loop
+        #     name = 'test_' + str(t) + '.lp'
+        #     self.extensive_model.update()
+        #     self.extensive_model.write(name)
 
 class Rolling(object):
 
