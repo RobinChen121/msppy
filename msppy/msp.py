@@ -614,7 +614,7 @@ class MSLP(object):
         """Set linear combination of expectation and conditional value at risk
         (average value at risk) as risk measure
 
-        Parameters
+        Parameters:
         ----------
         l: float between 0 and 1/array-like of floats between 0 and 1
             The weights of AVaR from stage 2 to stage T

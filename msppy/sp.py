@@ -1116,6 +1116,7 @@ class StochasticModel(object):
                     else:
                         self._model.chgCoeff(key[0], key[1], sample[index])
 
+    # noinspection PyArgumentList
     def _update_uncertainty_dependent(self, Markov_state):
         # Update model with a Markov state
         if self.uncertainty_coef_dependent is not None:
@@ -1124,10 +1125,10 @@ class StochasticModel(object):
         if self.uncertainty_rhs_dependent is not None:
             for constr_tuple, value in self.uncertainty_rhs_dependent.items():
                 if type(constr_tuple) == tuple:
-                    self._model.setAttr(
+                    self._model.setAttr( # setAttr(attrname, newvalue)
                         "RHS",
                         list(constr_tuple),
-                        [Markov_state[i] for i in value],
+                        [Markov_state[i] for i in value]
                     )
                 else:
                     constr_tuple.setAttr("RHS", Markov_state[value])
