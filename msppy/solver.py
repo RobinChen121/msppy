@@ -1438,7 +1438,7 @@ class Extensive(object):
                                 if expr_.getVar(i) in controls_dict.keys():
                                     pos = controls_dict[expr_.getVar(i)]
                                     lhs += expr_.getCoeff(i) * controls[pos]
-                                elif expr_.getVar(i) in states_dict.keys():
+                                elif expr_.getVar(i) in states_dict.keys(): # chen: without deep copy, this line of code may be wrong
                                     pos = states_dict[expr_.getVar(i)]
                                     lhs += (
                                         expr_.getCoeff(i)
