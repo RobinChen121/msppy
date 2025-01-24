@@ -1471,9 +1471,9 @@ class Extensive(object):
                 stage_cost = new_stage_cost
             sample_paths = new_sample_paths
         # !end time loop
-        #     name = 'test_' + str(t) + '.lp'
-        #     self.extensive_model.update()
-        #     self.extensive_model.write(name)
+        # name = 'extensive.lp'
+        # self.extensive_model.update()
+        # self.extensive_model.write(name)
 
 class Rolling(object):
 
