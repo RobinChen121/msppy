@@ -207,7 +207,7 @@ class MSLP(object):
         if hasattr(self, "Markovian_uncertainty") or hasattr(self,
         "Markov_states"):
             raise ValueError("Markovian uncertainty has already added!")
-        self.dim_Markov_states = check_Markovian_uncertainty(Markovian_uncertainty)
+        self.dim_Markov_states = check_Markovian_uncertainty(Markovian_uncertainty, self.T)
         self.Markovian_uncertainty = Markovian_uncertainty
         self._type = 'Markovian'
 
