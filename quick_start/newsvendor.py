@@ -52,4 +52,4 @@ for t in range(T):
         m.addConstr(now == 5.0)
 Extensive(newsVendor).solve()
 newsVendor.set_AVaR(a=0.6, l=0.5)
-SDDP(newsVendor).solve(max_iterations=100)
+SDDP(newsVendor).solve(n_processes=2, n_steps=2, max_iterations=100)
