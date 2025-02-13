@@ -22,6 +22,8 @@ from msppy.solver import Extensive,SDDiP
 from msppy.evaluation import EvaluationTrue
 import gurobipy
 import numpy
+import math
+
 precision = 1
 numpy.random.seed(2)
 MIP = MSIP(T=2, bound=-10)
@@ -46,7 +48,7 @@ for t in range(2):
             uncertainty = {'rhs': [-1.2, -3]}
         )
 print('extensive solver: ', Extensive(MIP).solve(outputFlag=0))
-MIP.binarize(bin_stage=2, precision=precision)
+MIP.binarize(bin_stage=2, precision= precision)
 SDDiP(MIP).solve(cuts=['LG'], max_iterations=128)
 # resultTrue = EvaluationTrue(MIP) # chen: there are some errors running multiprocessing simulation
 # resultTrue.run(n_simulations=100)

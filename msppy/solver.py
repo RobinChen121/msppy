@@ -1203,6 +1203,9 @@ class Extensive(object):
         solving_end_time = time.time()
         self.solving_time = solving_end_time - solving_start_time
         self.total_time = self.construction_time + self.solving_time
+        # for var in self.extensive_model.getVars():
+        #     print(f'{var.varname} = {var.x}\n')
+
         return self.extensive_model.objVal
 
     def _get_varname(self):

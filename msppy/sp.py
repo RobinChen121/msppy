@@ -1560,7 +1560,7 @@ class StochasticModelLG(StochasticModel):
                 "obj", self.local_copies, [-x for x in grad_best_so_far]
             )
             self.optimize()
-            objLGScen[k] = self.objBound
+            objLGScen[k] = self.objBound # chen: self._model.objBound, the two are equal
         #! scenario iterations end
         return objLGScen, gradLGScen
 
